@@ -2,7 +2,7 @@
   font-family: "FiraSans-Light";
   src: url("../fonts/FiraSans-Light.ttf");
 }
-p {
+body {
   font-family: FiraSans-Light, sans-serif;
   font-size: 12pt;
   padding-left: 2%;
