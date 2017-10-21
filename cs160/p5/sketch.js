@@ -8,11 +8,7 @@ var lastMouseX = null;
 var lastMouseY = null;
 
 function draw() {
-    const r = random(0);
-    const m = millis();
-    const t = (millis() / 10);
     const color = tinycolor({h: mouseX / 2, s: 100, v: 100});
-    const hjhjh = color.getFormat();
     const rgbColor = color.toRgb();
     stroke(rgbColor.r, rgbColor.g, rgbColor.b, 250);
     if (mouseIsPressed) {
