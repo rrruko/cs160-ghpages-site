@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Resume</title>
+    <link rel="stylesheet" type="text/css" href="../styles/resume.css">
+  </head>
+  <body>
+    <h1>Dreaming in Code Answers</h1>
+    <h2>Chapter 0</h2>
+    <h3>Who wrote "software is hard?" Who is that guy?</h3>
+    <p>
+      Donald Knuth, author of <i>The Art of Computer Programming</i> and TeX. 
+    </p>
+    <h3>Programmers start counting at what number?</h3>
+    <p>
+      0, sometimes.
+    </p>
+    <p>
+      In most programming languages, listy containers are indexed starting from
+      0. This tradition derives from the implementation details of array
+      indexing and related mathematical phenomena; in other words, it often
+      makes more sense to start from 0 in computer science.
+    </p>
+    <p>
+      For instance: we access elements of an array <code>a</code> by writing 
+      <code>a[n]</code>, which desugars to <code>*(a + n)</code>. 
+      But because <code>*a</code> just refers to the start of the array, i.e., the
+      first element, and because <code>*(a + 0) = *a</code>, thus <code>a[0]</code> 
+      accesses that element.
+    </p>
+    <p>
+      For instance, given <code>a = ['A', 'B', 'C']</code>, we have <code>a[0] =
+      'A'</code>. The first element is the one corresponding to the label 0.
+    </p>
+    <p>
+      It's tempting to say that programmers should just stop being weird and
+      count from 1 like everyone else. Languages like Lua enforce this
+      perspective by numbering arrays from 1. But that isn't a perfect solution,
+      because counting is hard.
+    </p>
+    <img src="fencepost.svg">
+    <p>
+      How many fenceposts do you need to make a 10-foot fence with posts 1 foot
+      apart? If you don't think about it carefully, you might answer 10. We
+      think of it as an easy problem, but even counting can be hard sometimes.
+    </p>
+    <p>
+      The real world is governed by math, and math is hard. When we really 
+      engage with math we reveal the perilous complexities inherent in the real
+      world. As humans, we construct abstractions to help avoid these
+      complexities, and as programmers, it is our job to translate between these
+      complexities and the human intution. The translation is usually lossy.
+    </p>
+    <h3>What was the original sense of a "hacker?"</h3>
+    <p>
+      "Hacker" originally had nothing to do with computer security. A hacker, in
+      the original sense, was someone who embodied the virtues of computer
+      culture, and was associated with an attitude of creativity and playfulness 
+      with respect to software.
+    </p>
+    <h3>According to a 2002 NIST study what % of software came in significantly
+        late, over budget, or was canceled?</h3>
+    <p>  
+      Two out of three.
+    </p>
+    <h3>Who wrote the 1987 essay entitled “No Silver Bullet?”</h3>
+    <p>
+      Fred Brooks. 
+    </p>
+    <p>
+      "No silver bullet" means that there is essential complexity inherent in
+      programming that can't easily be solved by the use of a better tool. At
+      the time, hardware was improving rapidly and some people expected the same
+      rate of improvement in software. Brooks claimed that this wasn't possible
+      because software was in some sense harder.
+    </p>
+    <h2>Chapter 1</h2>
+    <h3>What roles in the Chandler project did Michael Toy, John Anderson, Ted
+        Burgess, Mitchell Kapor, and Lou Montulli hold.</h3>
+    <p>
+      Toy was manager. Anderson was systems architect and the de facto lead 
+      coder. Kapor was founder of the Open Source Applications Foundation. 
+      Montulli and Burgess were programmers.
+    </p>
+    <h3>What is “Bugzilla?”</h3>
+    <p>
+      A bug tracking program that the team used to record estimated times to fix
+      bugs.
+    </p>
+    <h3>What is OSAF?</h3>
+    <p>
+      The Open Source Applications Foundation, the organization in charge of the
+      Chandler project.
+    <h3>What is the projects name?</h3>
+    <p>
+      Chandler.
+    </p>
+    <h3>What will the software do?</h3>
+    <p>
+      It was supposed to be a "personal information manager" for organizing
+      calendars, emails, and to-do lists.
+    </p>
+    <h3>What is Toy’s keyword for “black hole” bugs?</h3>
+    <p>
+      "Scary".
+    </p>
+    <h3>What scared Toy so much about Bug 44?</h3>
+    <p>
+      It had a "black hole-like quality", because nobody could estimate how long
+      it would take to fix.
+    </p>
+    <h3>What did Toy refer to as a “snake?”</h3>
+    <p>
+      An important problem that the team didn't have consensus on how to attack.
+    </p>
+    <h3>In the software world, what does “slippage” mean?</h3>
+    <p>
+      Lateness.
+    </p>
+    <h3>Fredrick Brooks was a programming manager for what software
+        project?</h3>
+    <p>
+      The IBM System/360.
+    </p>
+    <h3>What is Brooks's Law?</h3>
+    <p>
+      "Adding manpower to a late software project makes it later." 
+    </p>
+    <h3>Brooks found what % of project time was spent writing code?</h3>
+    <p>One-sixth.</p>
+    <h3>Brooks found what % of project time was for testing and fixing
+        bugs?</h3>
+    <p>One-half.</p>
+    <h3>Brooks observed that the unit of effort named “man-month” only applied
+        under what conditions?</h3>
+    <p>
+      Only when a task can be partitioned among many workers with no
+      communication among them. Adding new people to a project often costs 
+      so much more extra time spent communicating with the new members that it
+      isn't worth the time saved by splitting up work.
+    </p>
+    <h3>What is the difference between source code and the program you install
+        (.exe) on your computer?</h3>
+    <p>
+      Executable files consist of machine code, which consists of instructions
+      that can be directly interpreted by the processor. They are almost never
+      written directly by a human, but instead generated by running a compiler
+      on source code written in a more expressive and human-readable language.
+      Such as INTERCAL.
+    </p>
+    <h3>What is the one “article of faith” that all “open source” or “free”
+        software advocates share?</h3>
+    <p>
+      That if the source code of a program is freely available, it will
+      eventually become better than any closed software.
+    </p>
+    <h3>What is the difference between a “good” programmer and a “great”
+        programmer?</h3>
+    <p>
+      "Good programmers know what to write. Great ones know what to rewrite (and
+      reuse)."
+    </p>
+    <h3>Eric Raymond’s book “The Cathedral and the Bazaar” made a distinction
+        between two important project development ideas, briefly contrast
+        them.</h3>
+    <p>
+      Cathedral–Release it when it's finished. Keep the team small and their
+      agendas similar.</br>
+      Bazaar–Release early and often. Delegate everything to people with all
+      kinds of different agendas and approaches.
+    </p>
+    <h3>Has “open source” software project development refuted Brooks’s
+        “mythical man-month” concerns?</h3>
+    <p>
+      The internet allows developers to make information about their projects
+      easily accessible to anyone. This means less time is spent bringing new
+      developers up to speed, and it becomes genuinely beneficial to have
+      hundreds or thousands of contributors.
+    </p>
+    <h3>What was Andy Hertzfeld’s input when the Chandler project appeared to
+        have stalled?</h3>
+    <p>
+      Hertzfeld advocated getting draft versions of the project up and running
+      as quickly as possible before working out all the design details.
+    </p>
+  </body>
+</html>
