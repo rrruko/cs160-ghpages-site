@@ -4,12 +4,11 @@
 }
 body {
   font-family: FiraSans-Light, sans-serif;
-  font-size: 12pt;
   padding-left: 2%;
 }
 h1 {
   font-family: FiraSans-Light, sans-serif;
-  font-size: 18pt;
+  font-size: 1.5em;
 }
 h2 {
   margin-top: 1em;
