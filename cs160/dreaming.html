@@ -299,5 +299,45 @@
       Torvalds's advice is reminiscent of the Unix Philosophy: "Do one thing and
       do it well."
     </p>
+    <h2>Chapter 7</h2>
+    <h3>Briefly describe Hungarian notation</h3>
+    <p>
+      Hungarian notation is a way of naming variables where the variables are
+      prefixed with their type. "Type" doesn't necessarily refer to the types of
+      the programming language. Naming variables like <code>float_x_position</code>
+      or <code>string_user_id</code>, indicating that the variables contain
+      floats and strings respectively, is considerably less useful than saying,
+      for instance, <code>unsafe_name</code> to ensure programmers don't forget
+      to sanitize the name. The former usage is sometimes called Systems
+      Hungarian notation, and the latter is called Apps Hungarian.
+    </p>
+    <p>
+      Incidentally, one of the things I like about Haskell is that lends itself
+      well to defining custom types like an <code>Unsafe String</code> to
+      enforce correct use. You could also define a wrapper class to do this in
+      any language that supports OOP, but it tends to require a lot of
+      boilerplate.
+    </p>
+    <h3>What does the author state is the “...single most challenging demand of
+        software development.”</h3>
+    <p>
+      Communicating abstractions unambiguously.
+    </p>
+    <h2>Chapter 8</h2>
+    <h3>What does “eat your own dogfood” mean?</h3>
+    <p>
+      A developer's product is dog food. The consumer is the dog.
+      Dogfooding is when a company uses its own product as quality control.
+    </p>
+    <h3>Quote: “When people ask for numbers that far out, the traditional thing
+        that engineers do ....” When discussing the timeline for Chandler, how
+        was the quote above completed?</h3>
+    <p>
+      Make them up.
+    </p>
+    <p>
+      Hofstadter's Law: It always takes longer than you expect, even when you
+      take into account Hofstadter's Law.
+    </p>
   </body>
 </html>
