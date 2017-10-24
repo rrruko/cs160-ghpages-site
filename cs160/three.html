@@ -11,47 +11,94 @@
 <body>
   <script src="../scripts/three.js"></script>
   <script src="../scripts/tinycolor.js"></script>
+  <script src="../scripts/keyboard.min.js"></script>
   <script>
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, 
-        window.innerWidth / window.innerHeight, 0.1, 1000);
-    
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-    
+    var spin = 0;
     var color = tinycolor('#ff7f7f');
-    var hex = parseInt('0x' + color.toHex());
+    var material;
+    var ico;
+    var renderer;
+    var scene;
+    var camera;
+    var light;
+    var rotVel = 0;
+    var walkSpeed = 0;
+    var plane;
 
-    var geometry = new THREE.IcosahedronGeometry(1);
-    var material = new THREE.MeshLambertMaterial({color: hex});
-    var cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    init();
+    animate();
+   
+    function init() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, 
+            window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+        
+        var geometry = new THREE.IcosahedronGeometry(1, 0);
+        material = new THREE.MeshStandardMaterial();
+        ico = new THREE.Mesh(geometry, material);
+        ico.position.set(0, 0, 0);
+        scene.add(ico);
 
-    var light = new THREE.DirectionalLight(0xffffff, 0.5);
-    light.position.set(0, 0, 1);
-    scene.add(light);
+        var planeGeometry = new THREE.PlaneGeometry(20, 20);
+        var planeMaterial = new THREE.MeshStandardMaterial();
+        plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = -3.14159/2;
+        plane.position.y = -0.5;
+        scene.add(plane);
+        
+        light = new THREE.PointLight(0xffffff, 0.5, 0, 2);
+        light.position.set(0, 0, 5);
+        scene.add(light);
 
-    camera.position.z = 5;
+        camera.position.z = 5;
+    }
 
-    var animate = function() {
+    function animate() {
         requestAnimationFrame(animate);
-        var hsl = color.toHsl();
+
+        hsl = color.toHsl();
         color = tinycolor({ h: hsl.h + 1, s: hsl.s, l: hsl.l });
         const newColor = color.toHsl();
-        //console.log(newColor.h);
-        cube.material.color.setHSL(newColor.h/360, 0.8, 0.5);
-        /*var h = cube.material.color.getHex();
-        var newColor = tinycolor(h);
-        var hsl = newColor.toHsl
-        cube.material.color.setHex(h);*/
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
+        ico.material.color.setHSL(newColor.h/360, 0.8, 0.5);
+        
+        ico.rotation.y += 0.02;
+        ico.scale.set(0.5, 0.5, 0.5);
+
+        camera.rotation.y += rotVel;
+        light.position.x = camera.position.x;
+        light.position.z = camera.position.z;
+        console.log(light.position);
+        //light.applyMatrix(light.matrix);
+
+        const direction = camera.getWorldDirection();
+        camera.position.add(direction.multiplyScalar(walkSpeed));
 
         renderer.render(scene, camera);
-    }
-    animate();
-
+    }    
+    keyboardJS.bind(['a', 'left'], function(e) {
+        rotVel = 0.1;
+    }, function(e) {
+        rotVel = 0;
+    });
+    keyboardJS.bind(['d', 'right'], function(e) {
+        rotVel = -0.1;
+    }, function(e) {
+        rotVel = 0;
+    });
+    keyboardJS.bind(['w', 'up'], function(e) {
+        walkSpeed = 0.05;
+    }, function(e) {
+        walkSpeed = 0;
+    });
+    keyboardJS.bind(['s', 'down'], function(e) {
+        walkSpeed = -0.05;
+    }, function(e) {
+        walkSpeed = 0;
+    });
   </script>
 </body>
 </html>
