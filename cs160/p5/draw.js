@@ -1,5 +1,6 @@
 function setup() {
-    createCanvas(720, 480);
+    var canvas = createCanvas(windowWidth/2, windowHeight/2);
+    canvas.parent('container');
     background(255);
 }
 
@@ -24,4 +25,8 @@ function draw() {
         lastMouseY = null;
     }
     ticks += 1;
+}
+
+function windowResized() {
+  centerCanvas();
 }

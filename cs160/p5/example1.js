@@ -1,5 +1,6 @@
 function setup() {
-    createCanvas(720, 480);
+    var canvas = createCanvas(windowWidth/2, windowHeight/2);
+    canvas.parent('container');
     background(255);
 }
 
@@ -10,4 +11,8 @@ function draw() {
         fill(255);
     }
     ellipse(mouseX, mouseY, 80, 80);
+}
+
+function windowResized() {
+  centerCanvas();
 }
