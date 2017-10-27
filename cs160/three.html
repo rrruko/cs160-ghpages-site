@@ -85,7 +85,6 @@
         
         const dt = clock.getDelta();
         jumpVel -= gravity * dt;
-        console.log(jumpVel);
         camera.position.add(new THREE.Vector3( 0, jumpVel, 0 ));
 
         if (camera.position.y < floorY + playerHeight) {
