@@ -25,6 +25,7 @@
     var walkSpeed = 0;
     var plane;
     var clock;
+    var words;
     
     var gravity = 0.2;
     var grounded = true;
@@ -63,6 +64,29 @@
         scene.add(light);
 
         camera.position.z = 5;
+
+        var loader = new THREE.FontLoader();
+
+        loader.load('../fonts/firasansreg.json', function (font) {
+	    var textGeometry = new THREE.TextGeometry('press Z\nto go back', {
+		    font: font,
+                    size: 0.5,
+                    height: 0,
+                    curveSegments: 12,
+                    bevelEnabled: false,
+	    });
+
+            textGeometry.center();
+            var textMaterial = new THREE.MeshStandardMaterial();
+            words = new THREE.Mesh(textGeometry, textMaterial);
+            words.material.color.setHSL(0, 1, 0);
+            words.rotation.x = -3.14159/2;
+            words.position.y = floorY + 0.001;
+            words.position.z = 3;
+
+            scene.add(words);
+        });
+
     }
 
     function animate() {
@@ -73,7 +97,10 @@
         const newColor = color.toHsl();
         ico.material.color.setHSL(newColor.h/360, 0.8, 0.5);
         
-        ico.rotation.y += 0.02;
+        const dist = new THREE.Vector3()
+            .subVectors(ico.position, camera.position).length();
+        ico.rotation.y += 0.05 / (dist * dist);
+        ico.rotation.z += 0.01 / dist;
         ico.scale.set(0.5, 0.5, 0.5);
 
         camera.rotation.y += rotVel;
@@ -93,6 +120,15 @@
             jumpVel = 0;
         }
 
+        if (false && words) {
+            const cameraXZ = new THREE.Vector3()
+                .multiplyVectors(camera.position, new THREE.Vector3(1, 0, 1));
+            const icoToCamera = new THREE.Vector3().subVectors(cameraXZ, ico.position)
+                .normalize().multiplyScalar(0.5);
+            const wordsPosition = new THREE.Vector3().addVectors(ico.position, icoToCamera);
+            words.position.copy(wordsPosition);
+            words.lookAt(cameraXZ);
+        }
         renderer.render(scene, camera);
     }
     function tryJump() {
