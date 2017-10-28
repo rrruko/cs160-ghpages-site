@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>CODE Answers</title>
+    <link rel="stylesheet" type="text/css" href="../styles/resume.css"/>
+  </head>
+  <body>
+    <h1>CODE Answers</h1>
+    <h2>Chapter 11</h2>
+    <h3>Briefly describe the four gates explained in Chapter 11. Describe the
+        behavior of each gate based on the input values to the gate.</h3>
+    <p>
+      OR gate: output 1 if any inputs are 1, otherwise 0.<br/>
+      AND gate: output 1 if all inputs are 1, otherwise 0.<br/>
+      NOR gate: output 1 if no inputs are 1, otherwise 0.<br/>
+      NAND gate: output 1 unless all inputs are 1.<br/>
+    </p>
+    <h2>Chapter 12</h2>
+    <h3>A half adder is built from how many "sub components" and has how many 
+        inputs and outputs?</h3>
+    <p>
+      Two components: an AND gate and an XOR gate (which is itself probably
+      composed of an OR, a NAND, and an AND gate).
+    </p>
+    <p>
+      Two inputs (one for each bit) and two outputs, for the sum and the carry.
+    </p>
+    <h3>A full adder is built from how many "sub components" and has how many 
+        inputs and outputs?</h3>
+    <p>
+      Three components: two half adders and an OR gate.
+    </p>
+    <p>
+      Three inputs and two outputs for sum and carry.
+    </p>
+    <h3>How many total inputs and outputs are there for an 8-bit adding
+        circuit?</h3>
+    <p>
+      Seventeen inputs for each bit of the two 8-bit inputs, plus an extra
+      because we're using full adders. Nine outputs for each bit of the output.
+      The ninth output might be considered extraneous too since computers add
+      with overflow, writing the result of an 8-bit addition to yet another 
+      8-bit number, even if the result is incorrect*. However,
+      <a href="http://bgb.bircd.org/pandocs.htm#cpuregistersandflags">some</a> 
+      (most? all?) CPUs keep track of whether the last arithmetic operation 
+      resulted in a carry, making the carry out bit useful to machine code.
+    </p>
+    <p>
+      *The statement <code>255 + 1 = 0</code> isn't actually wrong if you're 
+      talking about <a href="https://en.wikipedia.org/wiki/Modular_arithmetic">
+      addition modulo 256.</a>
+    </p>
+    <h3>How many total transistors are needed for the ripple version of the
+        8-bit adder?</h3>
+    <p>
+      144.
+    </p>
+    <h2>Chapter 13</h2>
+  </body>
+  <p><a href="./portfolio.html">Back to portfolio</a></p>
+</html>
