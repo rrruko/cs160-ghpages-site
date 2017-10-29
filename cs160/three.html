@@ -86,7 +86,6 @@
 
             scene.add(words);
         });
-
     }
 
     function animate() {
@@ -136,6 +135,11 @@
             jumpVel = 0.1;
             grounded = false;
         }
+    }
+    function resize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight )
     }
     keyboardJS.bind(['a', 'left'], function(e) {
         rotVel = 0.1;
