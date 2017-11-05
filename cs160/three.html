@@ -13,6 +13,7 @@
   <script src="../scripts/tinycolor.js"></script>
   <script src="../scripts/keyboard.min.js"></script>
   <script>
+    const pi = Math.PI;
     var spin = 0;
     var color = tinycolor('#ff7f7f');
     var material;
@@ -26,12 +27,16 @@
     var plane;
     var clock;
     var words;
+
+    var toggle = false;
     
     var gravity = 0.2;
     var grounded = true;
     var floorY = -0.5;
     var playerHeight = 0.5;
     var jumpVel = 0;
+    var mouse = [0.5, 0.5];
+    var target = new THREE.Vector3();
 
     init();
     animate();
@@ -55,7 +60,7 @@
         var planeGeometry = new THREE.PlaneGeometry(20, 20);
         var planeMaterial = new THREE.MeshStandardMaterial();
         plane = new THREE.Mesh(planeGeometry, planeMaterial);
-        plane.rotation.x = -3.14159/2;
+        plane.rotation.x = -pi/2;
         plane.position.y = floorY;
         scene.add(plane);
         
@@ -80,12 +85,14 @@
             var textMaterial = new THREE.MeshStandardMaterial();
             words = new THREE.Mesh(textGeometry, textMaterial);
             words.material.color.setHSL(0, 1, 0);
-            words.rotation.x = -3.14159/2;
+            words.rotation.x = -pi/2;
             words.position.y = floorY + 0.001;
             words.position.z = 3;
-
             scene.add(words);
         });
+
+        window.addEventListener('resize', resize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
     }
 
     function animate() {
@@ -111,7 +118,7 @@
         
         const dt = clock.getDelta();
         jumpVel -= gravity * dt;
-        camera.position.add(new THREE.Vector3( 0, jumpVel, 0 ));
+        camera.position.add(new THREE.Vector3(0, jumpVel, 0));
 
         if (camera.position.y < floorY + playerHeight) {
             camera.position.y = floorY + playerHeight;
@@ -119,15 +126,15 @@
             jumpVel = 0;
         }
 
-        if (false && words) {
-            const cameraXZ = new THREE.Vector3()
-                .multiplyVectors(camera.position, new THREE.Vector3(1, 0, 1));
-            const icoToCamera = new THREE.Vector3().subVectors(cameraXZ, ico.position)
-                .normalize().multiplyScalar(0.5);
-            const wordsPosition = new THREE.Vector3().addVectors(ico.position, icoToCamera);
-            words.position.copy(wordsPosition);
-            words.lookAt(cameraXZ);
-        }
+        const targetYSpin = mouse[0] * 2 * pi;
+
+        const target = new THREE.Vector3().addVectors(
+            camera.position,
+            new THREE.Vector3(Math.sin(-targetYSpin), Math.tan(1 - 2*mouse[1]), -Math.cos(targetYSpin))
+        );
+
+        camera.lookAt(target);
+
         renderer.render(scene, camera);
     }
     function tryJump() {
@@ -139,7 +146,11 @@
     function resize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( window.innerWidth, window.innerHeight )
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    function onMouseMove(ev) {
+        mouse[0] = ev.clientX / window.innerWidth;
+        mouse[1] = ev.clientY / window.innerHeight;
     }
     keyboardJS.bind(['a', 'left'], function(e) {
         rotVel = 0.1;
