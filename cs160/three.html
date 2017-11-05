@@ -113,7 +113,8 @@
         light.position.x = camera.position.x;
         light.position.z = camera.position.z;
 
-        const direction = camera.getWorldDirection();
+        const direction = camera.getWorldDirection()
+            .multiply(new THREE.Vector3(1, 0, 1)).normalize();
         camera.position.add(direction.multiplyScalar(walkSpeed));
         
         const dt = clock.getDelta();
