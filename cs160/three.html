@@ -130,7 +130,7 @@
 
         const target = new THREE.Vector3().addVectors(
             camera.position,
-            new THREE.Vector3(Math.sin(-targetYSpin), Math.tan(1 - 2*mouse[1]), -Math.cos(targetYSpin))
+            new THREE.Vector3(Math.sin(-targetYSpin), Math.tan(1 - 2*mouse[1]), Math.cos(-targetYSpin))
         );
 
         camera.lookAt(target);
