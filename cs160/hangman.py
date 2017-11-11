@@ -25,7 +25,7 @@ def gameloop(pokemon):
         win = ''.join(progress) == pokemon
 
     if win:
-        print('That\'s right! It\'s' + pokemon + '.')
+        print('That\'s right! It\'s ' + pokemon + '.')
         print('Your father and I are so proud of you.')
     else:
         print('You took too long.')
