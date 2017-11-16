@@ -45,7 +45,49 @@
     if __name__ == '__main__':
         main()
   </code></pre>
-  <p><a href="./hangman.py" download>Download this file.</a></p>
+  <p>Bonus elixir version:</p>
+  <pre><code class="elixir">
+    defmodule Hangman do
+      def main() do
+        pokemon = File.read!("pokemon.txt")
+          |&gt; String.split()
+          |&gt; Enum.random()
+        pokemon = to_charlist(pokemon)
+        progress = Enum.map(pokemon, fn x -&gt; "_" end)
+
+        gameloop(pokemon, progress, 5)
+      end
+
+      def gameloop(pokemon, progress, time) do
+        IO.puts progress
+        guess = hd(to_charlist(IO.gets "&gt; "))
+        matches = Enum.map(pokemon, fn x -&gt; if x == guess, do: x, else: "_" end)
+        new_progress = Enum.zip(matches, progress)
+          |&gt; Enum.map(fn {x, y} -&gt; Enum.min([x,y]) end)
+        cond do
+          new_progress == pokemon -&gt; win pokemon
+          time &lt;= 0 -&gt; lose pokemon
+          Enum.find(pokemon, fn x -&gt; x == guess end) -&gt;
+            gameloop(pokemon, new_progress, time)
+          true -&gt;
+            gameloop(pokemon, new_progress, time - 1)
+        end
+      end
+
+      def win(pokemon) do
+        IO.puts("That's right! It's " &lt;&gt; to_string(pokemon) &lt;&gt; ".")
+        IO.puts("Your father and I are so proud of you.")
+      end
+
+      def lose(pokemon) do
+        IO.puts("You took too long.")
+        IO.puts("It was " &lt;&gt; to_string(pokemon) &lt;&gt; " all along.")
+      end
+    end
+
+    Hangman.main()
+  </code></pre>
+  <p><a href="./hangman.py" download>Download this file</a></p>
   <p><a href="./portfolio.html">Back to portfolio</a></p>
 </body>
 </html>
