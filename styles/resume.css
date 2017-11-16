@@ -5,14 +5,24 @@
 body {
   font-family: FiraSans-Light, sans-serif;
   padding-left: 2%;
+  background-color: #111;
+  color: #eee;
 }
 h1 {
   font-family: FiraSans-Light, sans-serif;
   font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 h2 {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+a {
+  color: #f89;
+}
+a:visited {
+  color: #fcd;
 }
 .header {
   text-align: center;
