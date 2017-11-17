@@ -1,15 +1,10 @@
-@font-face {
-  font-family: "FiraSans-Light";
-  src: url("../fonts/FiraSans-Light.ttf");
-}
 body {
-  font-family: FiraSans-Light, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   padding-left: 2%;
   background-color: #111;
   color: #eee;
 }
 h1 {
-  font-family: FiraSans-Light, sans-serif;
   font-size: 1.5em;
   margin-top: 1em;
   margin-bottom: 1em;
