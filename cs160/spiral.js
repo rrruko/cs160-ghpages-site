@@ -1,23 +1,34 @@
 window.onload = function() {
     let img = new Image();
     const fileInput = document.getElementById('file-input');
-    fileInput.addEventListener('change', handle);
+    const maxScale = document.getElementById('max-scale');
+    fileInput.addEventListener('change', handleFile);
+    maxScale.addEventListener('change', handleScale);
 
-    function handle(e) {
+    function handleFile(e) {
+        if (!maxScale.value) {
+	    return;
+	}
         img.src = URL.createObjectURL(e.target.files[0]);
-        img.onload = function() {
-            spiral(1, 16, false, img);
+	img.onload = function() {
+            spiral(1, maxScale.value, false, img);
         }
+    }
+
+    function handleScale(e) {
+        if (img)
+            spiral(1, maxScale.value, false, img);
     }
 
     // This is just a needlessly complex, ad-hoc logarithmic spiral implementation
     // The `draw` function will render log2(endScale) copies of the supplied image
     // in a spiral formation.
     function spiral(startScale, endScale, force, img) {
-        if (!img) {
+        if (!img || img.width == 0) {
             console.log("no image found");
             return;
         }
+	endScale = Math.round(endScale);
 
         let imgData = getData(img);
 

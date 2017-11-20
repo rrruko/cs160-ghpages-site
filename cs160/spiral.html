@@ -5,7 +5,15 @@
   <script type="text/javascript" src="spiral.js"></script>
   </head>
 <body>
-  <input type="file" accept="image/*" id="file-input"></br>
+  <p>
+    This app makes a spiral out of an image. It's intended to be used with
+    pixel art so that the art can be viewed at many resolutions in one image.
+  </p>
+  <form>
+    Max scale (1, 2, 4, 8, or 16):
+    <input type="number" id="max-scale" min="1" max="16"></br>
+    <input type="file" accept="image/*" id="file-input"></br>
+  </form>
   <canvas id="canvas"></canvas>
 </body>
 </html>
