@@ -1,4 +1,5 @@
 window.onload = function () {
+    "use strict";
     const img = new Image();
     let canvas = document.getElementById("canvas");
     const fileInput = document.getElementById("file-input");
