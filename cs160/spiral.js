@@ -1,5 +1,5 @@
 window.onload = function () {
-    let img = new Image();
+    const img = new Image();
     let canvas = document.getElementById("canvas");
     const fileInput = document.getElementById("file-input");
     const maxScale = document.getElementById("max-scale");
