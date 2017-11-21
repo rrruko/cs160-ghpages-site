@@ -1,36 +1,29 @@
-window.onload = function() {
+window.onload = function () {
     let img = new Image();
     let canvas = document.getElementById("canvas");
     const fileInput = document.getElementById("file-input");
     const maxScale = document.getElementById("max-scale");
-    fileInput.addEventListener("change", handleFile);
-    maxScale.addEventListener("change", handleScale);
 
-    function handleFile(e) {
-        if (!maxScale.value) {
-            return;
-        }
-        img.src = URL.createObjectURL(e.target.files[0]);
-        img.onload = function() {
-            spiral(1, parseInt(maxScale.value), img);
-        };
-    }
-
-    function handleScale(e) {
-        if (img) {
-            spiral(1, parseInt(maxScale.value), img);
-        }
+    function getData(img) {
+        let memcanvas = document.createElement("canvas");
+        let context = canvas.getContext("2d");
+        memcanvas.width = img.width;
+        memcanvas.height = img.height;
+        context.drawImage(img, 0, 0);
+        return context.getImageData(0, 0, img.width, img.height);
     }
 
     // This is just a needlessly complex, ad-hoc logarithmic spiral implementation
     // The `draw` function will render log2(endScale) copies of the supplied image
     // in a spiral formation.
     function spiral(startScale, endScale, img) {
-        if (!img || img.width == 0) {
+        if (!img || img.width === 0) {
             console.log("no image found");
             return;
         }
-        if ([1, 2, 4, 8, 16].indexOf(endScale) === -1) {
+
+        let powers = [1, 2, 4, 8, 16];
+        if (powers.indexOf(endScale) === -1) {
             console.log("endScale isn't a multiple of 2");
             return;
         }
@@ -71,12 +64,22 @@ window.onload = function() {
         }
     }
 
-    function getData(img) {
-        var canvas = document.createElement("canvas");
-        var context = canvas.getContext("2d");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        context.drawImage(img, 0, 0);
-        return context.getImageData(0, 0, img.width, img.height);
+    function handleFile(e) {
+        if (!maxScale.value) {
+            return;
+        }
+        img.src = URL.createObjectURL(e.target.files[0]);
+        img.onload = function () {
+            spiral(1, parseInt(maxScale.value), img);
+        };
     }
-}
+
+    function handleScale(_) {
+        if (img) {
+            spiral(1, parseInt(maxScale.value), img);
+        }
+    }
+
+    fileInput.addEventListener("change", handleFile);
+    maxScale.addEventListener("change", handleScale);
+};
