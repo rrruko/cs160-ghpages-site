@@ -8,7 +8,6 @@ COLORS = [RED, YELLOW, GREEN, BLUE]
 
 def main():
     code = makeCode(COLORS, 4)
-    print(code)
     for turnCount in range(0, 12):
         guess = list(input('? '))
         print(feedback(list(code), list(guess)))
