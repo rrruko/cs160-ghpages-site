@@ -61,9 +61,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </tool>
-    <tool lib="1" name="NOT Gate">
-      <a name="facing" val="south"/>
-    </tool>
+    <tool lib="1" name="NOT Gate"/>
     <tool lib="1" name="AND Gate"/>
     <tool lib="1" name="OR Gate"/>
   </toolbar>
@@ -930,5 +928,89 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Set"/>
     </comp>
     <comp lib="1" loc="(290,180)" name="AND Gate"/>
+  </circuit>
+  <circuit name="edge-triggered D flip-flop">
+    <a name="circuit" val="edge-triggered D flip-flop"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(650,270)" to="(650,300)"/>
+    <wire from="(640,220)" to="(640,260)"/>
+    <wire from="(160,180)" to="(160,340)"/>
+    <wire from="(370,200)" to="(460,200)"/>
+    <wire from="(630,300)" to="(650,300)"/>
+    <wire from="(270,330)" to="(300,330)"/>
+    <wire from="(270,190)" to="(300,190)"/>
+    <wire from="(280,310)" to="(300,310)"/>
+    <wire from="(200,200)" to="(200,240)"/>
+    <wire from="(550,260)" to="(640,260)"/>
+    <wire from="(440,220)" to="(440,260)"/>
+    <wire from="(440,260)" to="(440,300)"/>
+    <wire from="(560,270)" to="(650,270)"/>
+    <wire from="(290,210)" to="(300,210)"/>
+    <wire from="(360,200)" to="(370,200)"/>
+    <wire from="(160,340)" to="(170,340)"/>
+    <wire from="(380,320)" to="(460,320)"/>
+    <wire from="(280,240)" to="(280,310)"/>
+    <wire from="(510,210)" to="(570,210)"/>
+    <wire from="(510,310)" to="(570,310)"/>
+    <wire from="(100,180)" to="(160,180)"/>
+    <wire from="(160,180)" to="(220,180)"/>
+    <wire from="(150,240)" to="(200,240)"/>
+    <wire from="(200,240)" to="(200,320)"/>
+    <wire from="(290,210)" to="(290,290)"/>
+    <wire from="(100,360)" to="(400,360)"/>
+    <wire from="(550,260)" to="(550,290)"/>
+    <wire from="(380,290)" to="(380,320)"/>
+    <wire from="(400,260)" to="(440,260)"/>
+    <wire from="(560,230)" to="(560,270)"/>
+    <wire from="(280,240)" to="(370,240)"/>
+    <wire from="(290,290)" to="(380,290)"/>
+    <wire from="(400,260)" to="(400,360)"/>
+    <wire from="(550,290)" to="(570,290)"/>
+    <wire from="(640,220)" to="(660,220)"/>
+    <wire from="(360,320)" to="(380,320)"/>
+    <wire from="(440,300)" to="(460,300)"/>
+    <wire from="(440,220)" to="(460,220)"/>
+    <wire from="(80,240)" to="(100,240)"/>
+    <wire from="(100,240)" to="(120,240)"/>
+    <wire from="(370,200)" to="(370,240)"/>
+    <wire from="(200,320)" to="(220,320)"/>
+    <wire from="(200,200)" to="(220,200)"/>
+    <wire from="(200,340)" to="(220,340)"/>
+    <wire from="(100,240)" to="(100,360)"/>
+    <wire from="(560,230)" to="(570,230)"/>
+    <wire from="(650,300)" to="(660,300)"/>
+    <wire from="(630,220)" to="(640,220)"/>
+    <comp lib="1" loc="(510,210)" name="AND Gate"/>
+    <comp lib="0" loc="(660,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Q"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(360,320)" name="NOR Gate"/>
+    <comp lib="1" loc="(630,220)" name="NOR Gate"/>
+    <comp lib="0" loc="(100,180)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Data"/>
+    </comp>
+    <comp lib="1" loc="(270,190)" name="AND Gate"/>
+    <comp lib="1" loc="(360,200)" name="NOR Gate"/>
+    <comp lib="1" loc="(150,240)" name="NOT Gate"/>
+    <comp lib="0" loc="(80,240)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Clock"/>
+    </comp>
+    <comp lib="1" loc="(630,300)" name="NOR Gate"/>
+    <comp lib="1" loc="(510,310)" name="AND Gate"/>
+    <comp lib="1" loc="(270,330)" name="AND Gate"/>
+    <comp lib="1" loc="(200,340)" name="NOT Gate"/>
+    <comp lib="0" loc="(660,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Qbar"/>
+      <a name="labelloc" val="east"/>
+    </comp>
   </circuit>
 </project>
