@@ -22,7 +22,8 @@
     COLORS = [RED, YELLOW, GREEN, BLUE]
 
     def main():
-        replay = True
+       print('Possible colors: ' + ' '.join(COLORS))
+       replay = True
         while replay:
             win = False
             code = makeCode(COLORS, 4)

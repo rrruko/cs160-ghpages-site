@@ -7,6 +7,7 @@ BLUE = 'B'
 COLORS = [RED, YELLOW, GREEN, BLUE]
 
 def main():
+    print('Possible colors: ' + ' '.join(COLORS))
     replay = True
     while replay:
         win = False
