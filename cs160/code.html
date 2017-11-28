@@ -57,7 +57,82 @@
     <p>
       144.
     </p>
-    <h2>Chapter 13</h2>
+    <h2>Chapter 13 & Chapter 14</h2>
+    <p>
+      <a href="./codebook.html">Logisim circuit screenshots are here.</a>
+    </p>
+    <h2>Chapter 15</h2>
+    <h3>Define byte.</h3>
+    <p>
+      A byte is generally the smallest addressable unit of information in a 
+      computer system and can usually be assumed to be 8 bits in length.
+    </p>
+    <h3>What is the range of an unsigned byte? A signed two's complement
+        byte?</h3>
+    <p>
+      An unsigned byte ranges from 0 to 255; a signed byte ranges from -128 to
+      127.
+    </p>
+    <h3>What does the X in the following binary number represent
+        1010X10101?</h3>
+    <p>
+      The X represents 32 (2^6). 1010110101 is 32 greater than 1010010101.
+    </p>
+    <h3>What is the base 16 number system called?</h3>
+    <p>
+      Hexadecimal, from the Greek <i>hex</i> for <i>six</i> and the Latin
+      <i>decimus</i> for <i>ten</i>.
+    </p>
+    <h3>Why is base 16 a good choice for representing binary numbers?</h3>
+    <p>
+      Since 16 is a power of two, the full range of a byte can be expressed in
+      exactly two hexadecimal digits, e.g. hexadecimal ff is binary 11111111.
+    </p>
+    <h3>What base 16 number is 101011000011? What is an easy way to determine
+        this without using a calculator?</h3>
+    <p>
+      Each group of 4 bits corresponds to a hex digit. In 1010 1100 0011, the
+      bits correspond to 8 + 2, 8 + 4, and 1 + 2, i.e. 10, 12, and 3. Written in
+      hex, those values are a, c and 3. So the hex representation is ac3.
+    </p>
+    <h3>What does the X represent in the following base 16 number D4AXF0?</h3>
+    <p>
+      The X represents 256 (16^2).
+    </p>
+    <h3>The book describes how to convert decimal to base 2 or base 16. Research
+        and describe a technique that allows conversion of decimal to any base
+        (2-36).</h3>
+    <p>
+    I wrote code to do that <a href="./baseN.html">here</a>.
+    </p>
+    <p>
+      The technique is this: append the number modulo the base to the string of
+      digits. Then integer-divide the number by the base. Repeat until the
+      number is 0.
+    </p>
+    <p>
+      There is a special case where the number starts out as 0; when that
+      happens, its representation in any base is just 0.
+    </p>
+    <h2>Chapter 16</h2>
+    <h3>What do the prefix names kilo, mega, giga, tera, and peta represent in
+        bytes and what were the Greek origins of the words?</h3>
+    <p>
+      1000<sup>1</sup>, 1000<sup>2</sup>, 1000<sup>3</sup>, 1000<sup>4</sup>,
+      and 1000<sup>5</sup> respectively.
+    </p>
+    <p>
+      <i>Kilo-</i> is derived from the Greek word for "thousand". <i>Mega-</i>,
+      <i>giga-</i>, and <i>tera-</i> are derived from Greek words meaning "great",
+      "giant", and "monster" respectively, and <i>peta-</i> has the same
+      etymology as <i>penta-</i>, coming from the Greek <i>πέντε</i> for "five".
+    </p>
+    <h3>At the end of Chapter 16 the author reminds the reader about something
+        that is "very important," what is this?</h3>
+    <p>
+      RAM requires a constant flow of electricity. When it loses power, all the
+      information it contains is lost too.
+    </p>
   </body>
   <p><a href="./portfolio.html">Back to portfolio</a></p>
 </html>
