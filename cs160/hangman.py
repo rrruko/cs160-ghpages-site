@@ -1,13 +1,18 @@
 from random import randint, randrange
 
 def main():
-    index = randint(0, 801) # There are 802 pokemon
-    pokemon = ''
-    with open('pokemon.txt') as fp:
-        for i, line in enumerate(fp):
-            if i == index:
-                pokemon = line.strip()
-    gameloop(pokemon)
+    replay = True
+    while replay:
+        index = randint(0, 801) # There are 802 pokemon
+        pokemon = ''
+        with open('pokemon.txt') as fp:
+            for i, line in enumerate(fp):
+                if i == index:
+                    pokemon = line.strip()
+        gameloop(pokemon)
+        print('Would you like to play again? (y/N)')
+        replay = input('> ') in ['y', 'yes']
+
 
 def gameloop(pokemon):
     progress = ['_' for char in pokemon]
