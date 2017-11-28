@@ -1,7 +1,4 @@
-@font-face {
-   font-family: 'Fira Code';
-   src: url('FiraCode-Regular.otf') format('otf');
-}
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
 
 body {
   font-family: 'Fira Sans', sans-serif;
