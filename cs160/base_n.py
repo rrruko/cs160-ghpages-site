@@ -1,7 +1,7 @@
 """Functions to deal with representations of integers in various bases"""
 
 def show_base(num, base):
-    """Show `num` at base `base`"""
+    """Show an integer as its string representation in the given base"""
     digits = "0123456789abcdefghijklmnopqrstuvwxyz"
     try:
         result = ""
@@ -14,7 +14,7 @@ def show_base(num, base):
         print("Base should be between 2 and 36.")
 
 def read_base(string, base):
-    """Read string at base `base`"""
+    """Read a string in the given base as an integer"""
     digits = "0123456789abcdefghijklmnopqrstuvwxyz"
     try:
         total = 0
