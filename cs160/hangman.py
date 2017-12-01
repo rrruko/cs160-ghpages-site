@@ -1,12 +1,15 @@
-from random import randint, randrange
+"""A hangman game with pokemon"""
+
+from random import randint
 
 def main():
+    """Choose a pokemon and start/restart the game"""
     replay = True
     while replay:
         index = randint(0, 801) # There are 802 pokemon
         pokemon = ''
-        with open('pokemon.txt') as fp:
-            for i, line in enumerate(fp):
+        with open('pokemon.txt') as file:
+            for i, line in enumerate(file):
                 if i == index:
                     pokemon = line.strip()
         gameloop(pokemon)
@@ -15,6 +18,7 @@ def main():
 
 
 def gameloop(pokemon):
+    """Main game loop"""
     progress = ['_' for char in pokemon]
     win = False
     time = 5
