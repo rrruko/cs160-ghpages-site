@@ -5,7 +5,7 @@ defmodule Hangman do
       |> Enum.random()
     pokemon = to_charlist(pokemon)
     progress = Enum.map(pokemon, fn x -> "_" end)
-   
+
     gameloop(pokemon, progress, 5)
   end
 

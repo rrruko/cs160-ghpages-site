@@ -7,13 +7,23 @@ BLUE = 'B'
 COLORS = [RED, YELLOW, GREEN, BLUE]
 
 def main():
-    code = makeCode(COLORS, 4)
-    for turnCount in range(0, 12):
-        guess = list(input('? '))
-        print(feedback(list(code), list(guess)))
-        if guess == code:
+    print('Possible colors: ' + ' '.join(COLORS))
+    replay = True
+    while replay:
+        win = False
+        code = makeCode(COLORS, 4)
+        for turnCount in range(0, 12):
+            guess = list(input('? '))
+            print(feedback(list(code), list(guess)))
+            if guess == code:
+                win = True
+                break
+        if win:
             print('You win')
-            break
+        else:
+            print('You lose')
+        print('Would you like to play again? (y/N)')
+        replay = input('> ') in ['y', 'yes']
 
 
 def makeCode(colors, length):
