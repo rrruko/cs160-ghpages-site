@@ -26,7 +26,7 @@ hell :: IO ()
 hell=forM_ [1..5] (putStrLn
     .liftA2(++)((("Maximum"
     ++" collatz sequence"++
-    " length up to ") ++) . 
+    " length up to ") ++) .
     show.(10 ^))((": " ++).
     show.maximum.map(length
     .takeWhile(/=1).iterate
